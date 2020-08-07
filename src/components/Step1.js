@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { chooseBase } from '../store/rootSlice';
@@ -16,26 +16,33 @@ export const Step1 = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h3>
-        <span>Step 1: </span>Wybierz miejsce nadruku:
-      </h3>
+      <h2>Krok 1: Wybierz miejsce nadruku:</h2>
       <div>
-        <label>
-          Z przodu
-          <input
-            type="radio"
-            name="base"
-            ref={register}
-            checked
-            value="front"
-          />
-        </label>
-        <label>
-          Z tyłu
-          <input type="radio" name="base" ref={register} value="back" />
-        </label>
+        <label htmlFor="base_front">Z przodu </label>
+        <input
+          id="base_front"
+          type="radio"
+          name="base"
+          ref={register}
+          checked
+          value="front"
+        />
       </div>
-      <button>Next</button>
+      <div>
+        <label htmlFor="base_back">Z tyłu </label>
+        <input
+          id="base_back"
+          type="radio"
+          name="base"
+          ref={register}
+          value="back"
+        />
+      </div>
+      <div className="stepComplete">
+        <button className="next" type="submit">
+          Next
+        </button>
+      </div>
     </form>
   );
 };

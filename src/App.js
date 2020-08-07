@@ -9,13 +9,16 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Route exact path="/" component={Step1} />
-      <Route path="/step2" component={Step2} />
-      <Route path="/step3" component={Step3} />
-      <Route path="/step4" component={Step4} />
-      <Route path="/thanks" component={Thanks} />
-    </Router>
+    <>
+      <h1>Skompletuj swoje zamówienie</h1>
+      <Router>
+        <Route exact path="/" component={Step1} />
+        <Route path="/step2" component={Step2} />
+        <Route path="/step3" component={Step3} />
+        <Route path="/step4" component={Step4} />
+        <Route path="/thanks" component={Thanks} />
+      </Router>
+    </>
   );
 }
 
