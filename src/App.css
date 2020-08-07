@@ -1,3 +1,14 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
 body {
   background: linear-gradient(
     107.42295983054794deg,
@@ -15,24 +26,30 @@ body {
 
 form {
   background: rgba(14, 16, 27, 0.3);
-  max-width: 400px;
+  max-width: 31rem;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   border: 3px solid white;
   border-radius: 7px;
-  padding: 1rem 3rem 3rem;
+  padding: 1rem 2rem;
 }
 
 label {
-  margin: 0 10px 20px 0;
+  margin: 0 1rem 2rem 0;
   display: inline-block;
+  font-size: 1.4rem;
 }
 
 .stepComplete {
   display: flex;
 }
+
 .next {
   margin-left: auto;
+}
+
+.previous {
+  margin-right: auto;
 }
 
 button[type='submit'] {
@@ -40,10 +57,9 @@ button[type='submit'] {
   color: white;
   text-transform: uppercase;
   border: none;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  letter-spacing: 10px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  letter-spacing: 5px;
   border-radius: 7px;
   cursor: pointer;
 }
