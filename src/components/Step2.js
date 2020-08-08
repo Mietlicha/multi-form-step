@@ -4,10 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { chooseGraphic } from '../store/rootSlice';
 import { Link } from 'react-router-dom';
-import Form from './styled-components/Form';
-import Label from './styled-components/Label';
+import { Form, Label, Input, ImageLabel } from './styled-components/Form';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
-import Input from './styled-components/Input';
 
 export const Step2 = () => {
   const dispatch = useDispatch();
@@ -39,7 +37,7 @@ export const Step2 = () => {
           ref={register}
           value="1"
         />
-        <Label className="label1" htmlFor="graphic_1"></Label>
+        <ImageLabel className="label1" htmlFor="graphic_1"></ImageLabel>
         <Input
           id="graphic_2"
           type="radio"
@@ -47,7 +45,7 @@ export const Step2 = () => {
           ref={register}
           value="2"
         />
-        <Label className="label2" htmlFor="graphic_2"></Label>
+        <ImageLabel className="label2" htmlFor="graphic_2"></ImageLabel>
         <Input
           id="graphic_3"
           type="radio"
@@ -55,7 +53,7 @@ export const Step2 = () => {
           ref={register}
           value="3"
         />
-        <Label className="label3" htmlFor="graphic_3"></Label>
+        <ImageLabel className="label3" htmlFor="graphic_3"></ImageLabel>
         <Input
           id="graphic_4"
           type="radio"
@@ -63,7 +61,7 @@ export const Step2 = () => {
           ref={register}
           value="4"
         />
-        <Label className="label4" htmlFor="graphic_4"></Label>
+        <ImageLabel className="label4" htmlFor="graphic_4"></ImageLabel>
       </div>
       <StepComplete>
         <Link to="/">

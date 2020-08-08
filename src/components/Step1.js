@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { chooseBase } from '../store/rootSlice';
-import Form from './styled-components/Form';
-import Label from './styled-components/Label';
+import { Form, Label } from './styled-components/Form';
 import { StepComplete, Next } from './styled-components/Steps';
 
 export const Step1 = () => {
