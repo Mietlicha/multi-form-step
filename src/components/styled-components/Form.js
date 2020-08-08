@@ -6,7 +6,7 @@ export const Form = styled.form`
   border: 3px solid white;
   border-radius: 7px;
   padding: 1rem;
-  /* max-width: 32rem; */
+  width: 32rem;
 `;
 
 export const Input = styled.input`
@@ -24,10 +24,18 @@ export const Label = styled.label`
 `;
 
 export const ImageLabel = styled(Label)`
-  background-image: url('https://picsum.photos/50/50?random=${({ htmlFor }) =>
+  background-image: url('https://picsum.photos/100/100?random=${({ htmlFor }) =>
     htmlFor.replace(/\D+/g, '')}');
-  height: 50px;
-  width: 50px;
+  height: 100px;
+  width: 100px;
   display: inline-block;
   padding: 0 0 0 0px;
+
+  @media screen and (min-width: 450px) {
+    background-image: url('https://picsum.photos/150/150?random=${({
+      htmlFor,
+    }) => htmlFor.replace(/\D+/g, '')}');
+    height: 150px;
+  width: 150px;
+  }
 `;

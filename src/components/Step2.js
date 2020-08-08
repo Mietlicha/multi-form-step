@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Form, Input, ImageLabel } from './styled-components/Form';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
 import { Error } from './styled-components/Error';
+import { GraphicContainer } from './styled-components/GraphicContainer';
 
 export const Step2 = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ export const Step2 = () => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <h2>Krok 2: Wybierz grafikę:</h2>
-      <div>
+      <GraphicContainer>
         <Input
           id="graphic_1"
           type="radio"
@@ -66,7 +67,7 @@ export const Step2 = () => {
           value="4"
         />
         <ImageLabel className="label4" htmlFor="graphic_4"></ImageLabel>
-      </div>
+      </GraphicContainer>
       {errors.graphic && <Error>wybierz jedną grafikę</Error>}
       <StepComplete>
         <Link to="/">

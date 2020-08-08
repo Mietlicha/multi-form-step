@@ -23,3 +23,15 @@ body {
   display: flex;
   justify-content: center;
 }
+
+@media screen and (min-width: 450px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  html {
+    font-size: 100%;
+  }
+}
