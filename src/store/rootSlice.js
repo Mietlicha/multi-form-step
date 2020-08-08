@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const rootSlice = createSlice({
   name: 'root',
   initialState: {
-    base: '',
-    graphic: '',
+    base: 'front',
+    graphic: '1',
     billingInfo: {
       firstName: '',
       lastName: '',

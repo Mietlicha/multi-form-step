@@ -5,12 +5,15 @@ import { useForm } from 'react-hook-form';
 import { chooseBase } from '../store/rootSlice';
 import { Form, Label } from './styled-components/Form';
 import { StepComplete, Next } from './styled-components/Steps';
+import { Error } from './styled-components/Error';
 
 export const Step1 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const base = useSelector((state) => state.base);
-  const { register, handleSubmit } = useForm({ defaultValues: { base } });
+  const { register, handleSubmit, errors } = useForm({
+    defaultValues: { base },
+  });
 
   const onSubmit = (data) => {
     dispatch(chooseBase(data.base));
@@ -35,8 +38,7 @@ export const Step1 = () => {
           id="base_front"
           type="radio"
           name="base"
-          ref={register}
-          defaultChecked
+          ref={register({ required: true })}
           value="front"
         />
       </div>
@@ -46,10 +48,11 @@ export const Step1 = () => {
           id="base_back"
           type="radio"
           name="base"
-          ref={register}
+          ref={register({ required: true })}
           value="back"
         />
       </div>
+      {errors.base && <Error>wybierz jedną z opcji</Error>}
       <StepComplete>
         <Next type="submit">Next</Next>
       </StepComplete>

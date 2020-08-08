@@ -6,12 +6,15 @@ import { chooseGraphic } from '../store/rootSlice';
 import { Link } from 'react-router-dom';
 import { Form, Input, ImageLabel } from './styled-components/Form';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
+import { Error } from './styled-components/Error';
 
 export const Step2 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const graphic = useSelector((state) => state.graphic);
-  const { register, handleSubmit } = useForm({ defaultValues: { graphic } });
+  const { register, handleSubmit, errors } = useForm({
+    defaultValues: { graphic },
+  });
 
   const onSubmit = (data) => {
     dispatch(chooseGraphic(data.graphic));
@@ -35,7 +38,7 @@ export const Step2 = () => {
           id="graphic_1"
           type="radio"
           name="graphic"
-          ref={register}
+          ref={register({ required: true })}
           value="1"
         />
         <ImageLabel className="label1" htmlFor="graphic_1"></ImageLabel>
@@ -43,7 +46,7 @@ export const Step2 = () => {
           id="graphic_2"
           type="radio"
           name="graphic"
-          ref={register}
+          ref={register({ required: true })}
           value="2"
         />
         <ImageLabel className="label2" htmlFor="graphic_2"></ImageLabel>
@@ -51,7 +54,7 @@ export const Step2 = () => {
           id="graphic_3"
           type="radio"
           name="graphic"
-          ref={register}
+          ref={register({ required: true })}
           value="3"
         />
         <ImageLabel className="label3" htmlFor="graphic_3"></ImageLabel>
@@ -59,11 +62,12 @@ export const Step2 = () => {
           id="graphic_4"
           type="radio"
           name="graphic"
-          ref={register}
+          ref={register({ required: true })}
           value="4"
         />
         <ImageLabel className="label4" htmlFor="graphic_4"></ImageLabel>
       </div>
+      {errors.graphic && <Error>wybierz jedną grafikę</Error>}
       <StepComplete>
         <Link to="/">
           <Previous type="submit">previous</Previous>
