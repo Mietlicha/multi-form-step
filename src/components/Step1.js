@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { chooseBase } from '../store/rootSlice';
+import Form from './styled-components/Form';
+import Label from './styled-components/Label';
+import { StepComplete, Next } from './styled-components/Steps';
 
 export const Step1 = () => {
   const dispatch = useDispatch();
@@ -15,21 +18,21 @@ export const Step1 = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <h2>Krok 1: Wybierz miejsce nadruku:</h2>
       <div>
-        <label htmlFor="base_front">Z przodu </label>
+        <Label htmlFor="base_front">Z przodu </Label>
         <input
           id="base_front"
           type="radio"
           name="base"
           ref={register}
-          checked
+          defaultChecked
           value="front"
         />
       </div>
       <div>
-        <label htmlFor="base_back">Z tyłu </label>
+        <Label htmlFor="base_back">Z tyłu </Label>
         <input
           id="base_back"
           type="radio"
@@ -38,11 +41,9 @@ export const Step1 = () => {
           value="back"
         />
       </div>
-      <div className="stepComplete">
-        <button className="next" type="submit">
-          Next
-        </button>
-      </div>
-    </form>
+      <StepComplete>
+        <Next type="submit">Next</Next>
+      </StepComplete>
+    </Form>
   );
 };

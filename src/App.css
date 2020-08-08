@@ -24,7 +24,7 @@ body {
   justify-content: center;
 }
 
-form {
+/* form {
   background: rgba(14, 16, 27, 0.3);
   max-width: 31rem;
   margin: 0 auto;
@@ -32,15 +32,15 @@ form {
   border: 3px solid white;
   border-radius: 7px;
   padding: 1rem 2rem;
-}
+} */
 
-label {
+/* label {
   margin: 0 1rem 2rem 0;
   display: inline-block;
   font-size: 1.4rem;
-}
+} */
 
-.stepComplete {
+/* .stepComplete {
   display: flex;
 }
 
@@ -50,9 +50,9 @@ label {
 
 .previous {
   margin-right: auto;
-}
+} */
 
-button[type='submit'] {
+/* button[type='submit'] {
   background: #f79605;
   color: white;
   text-transform: uppercase;
@@ -74,4 +74,32 @@ button[type='submit']:focus {
   transform: translateY(2px);
   opacity: 0.8;
   outline: none;
+} */
+
+/* input[type='radio'] {
+  display: none;
+} */
+
+.label1 {
+  background-image: url('https://picsum.photos/seed/picsum/50/50/');
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  padding: 0 0 0 0px;
 }
+
+.label2 {
+  background-image: url('https://picsum.photos/seed/picsum/50/50/');
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+}
+
+/* input[type='radio']:checked + .label1 {
+  border: 3px solid orange;
+} */
+
+/* input:checked
+
+#root > form > div:nth-child(2) > label.label1 */
