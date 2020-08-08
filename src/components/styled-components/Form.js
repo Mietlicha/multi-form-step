@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import React from 'react';
 
 export const Form = styled.form`
   background: rgba(14, 16, 27, 0.3);
@@ -26,7 +25,7 @@ export const Label = styled.label`
 
 export const ImageLabel = styled(Label)`
   background-image: url('https://picsum.photos/50/50?random=${({ htmlFor }) =>
-    htmlFor}');
+    htmlFor.replace(/\D+/g, '')}');
   height: 50px;
   width: 50px;
   display: inline-block;
