@@ -5,12 +5,15 @@ import { Step2 } from './components/Step2';
 import { Step3 } from './components/Step3';
 import { Step4 } from './components/Step4';
 import { Thanks } from './components/Thanks';
+import { Header } from './components/styled-components/Header';
 import './App.css';
 
 function App() {
   return (
     <>
-      <h1>Skompletuj swoje zamówienie</h1>
+      <Header>
+        <h1>Skompletuj swoje zamówienie</h1>
+      </Header>
       <Router>
         <Route exact path="/" component={Step1} />
         <Route path="/step2" component={Step2} />

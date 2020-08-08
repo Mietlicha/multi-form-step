@@ -13,6 +13,9 @@ const rootSlice = createSlice({
       apartment: '',
       city: '',
       zip: '',
+      town: '',
+      email: '',
+      phoneNumber: '',
     },
   },
   reducers: {
@@ -23,7 +26,7 @@ const rootSlice = createSlice({
       state.graphic = action.payload;
     },
     chooseBillingInfo: (state, action) => {
-      state.chooseBillingInfo = action.payload;
+      state.billingInfo = action.payload;
     },
   },
 });

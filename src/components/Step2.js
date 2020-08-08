@@ -41,7 +41,7 @@ export const Step2 = () => {
           ref={register({ required: true })}
           value="1"
         />
-        <ImageLabel className="label1" htmlFor="graphic_1"></ImageLabel>
+        <ImageLabel htmlFor="graphic_1"></ImageLabel>
         <Input
           id="graphic_2"
           type="radio"
@@ -49,7 +49,7 @@ export const Step2 = () => {
           ref={register({ required: true })}
           value="2"
         />
-        <ImageLabel className="label2" htmlFor="graphic_2"></ImageLabel>
+        <ImageLabel htmlFor="graphic_2"></ImageLabel>
         <Input
           id="graphic_3"
           type="radio"
@@ -57,7 +57,7 @@ export const Step2 = () => {
           ref={register({ required: true })}
           value="3"
         />
-        <ImageLabel className="label3" htmlFor="graphic_3"></ImageLabel>
+        <ImageLabel htmlFor="graphic_3"></ImageLabel>
         <Input
           id="graphic_4"
           type="radio"

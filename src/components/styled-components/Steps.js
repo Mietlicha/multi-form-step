@@ -6,8 +6,8 @@ const Button = styled.button`
   text-transform: uppercase;
   border: none;
   padding: 1rem 2rem;
-  font-size: 1.2rem;
-  letter-spacing: 5px;
+  font-size: 1rem;
+  letter-spacing: 2px;
   border-radius: 7px;
   cursor: pointer;
 
@@ -30,6 +30,7 @@ export const StepComplete = styled.div`
 
 export const Next = styled(Button)`
   margin-left: auto;
+  margin-left: 1rem;
 `;
 
 export const Previous = styled(Button)`
