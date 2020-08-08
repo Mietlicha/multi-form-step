@@ -16,7 +16,16 @@ export const Step2 = () => {
 
   const onSubmit = (data) => {
     dispatch(chooseGraphic(data.graphic));
-    history.push('./step3');
+    const form = document.querySelector('form');
+    form.style.opacity = '0';
+    form.style.transition = '0.3s all';
+    setTimeout(() => {
+      history.push('./step3');
+      form.style.opacity = '1';
+    }, 300);
+    setTimeout(() => {
+      form.style.opacity = '1';
+    }, 500);
   };
 
   return (
@@ -28,7 +37,6 @@ export const Step2 = () => {
           type="radio"
           name="graphic"
           ref={register}
-          defaultChecked
           value="1"
         />
         <Label className="label1" htmlFor="graphic_1"></Label>
@@ -40,6 +48,22 @@ export const Step2 = () => {
           value="2"
         />
         <Label className="label2" htmlFor="graphic_2"></Label>
+        <Input
+          id="graphic_3"
+          type="radio"
+          name="graphic"
+          ref={register}
+          value="3"
+        />
+        <Label className="label3" htmlFor="graphic_3"></Label>
+        <Input
+          id="graphic_4"
+          type="radio"
+          name="graphic"
+          ref={register}
+          value="4"
+        />
+        <Label className="label4" htmlFor="graphic_4"></Label>
       </div>
       <StepComplete>
         <Link to="/">

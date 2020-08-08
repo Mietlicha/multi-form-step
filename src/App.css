@@ -81,7 +81,7 @@ button[type='submit']:focus {
 } */
 
 .label1 {
-  background-image: url('https://picsum.photos/seed/picsum/50/50/');
+  background-image: url('https://picsum.photos/50/50?random=1');
   height: 50px;
   width: 50px;
   display: inline-block;
@@ -89,13 +89,28 @@ button[type='submit']:focus {
 }
 
 .label2 {
-  background-image: url('https://picsum.photos/seed/picsum/50/50/');
+  background-image: url('https://picsum.photos/50/50?random=2');
   height: 50px;
   width: 50px;
   display: inline-block;
   padding: 0 0 0 0px;
 }
 
+.label3 {
+  background-image: url('https://picsum.photos/50/50?random=3');
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+}
+
+.label4 {
+  background-image: url('https://picsum.photos/50/50?random=4');
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+}
 /* input[type='radio']:checked + .label1 {
   border: 3px solid orange;
 } */

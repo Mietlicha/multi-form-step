@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Form = styled.form`
   background: rgba(14, 16, 27, 0.3);
-  max-width: 31rem;
   margin: 0 auto;
   margin-top: 3.5rem;
   border: 3px solid white;

@@ -14,7 +14,16 @@ export const Step1 = () => {
 
   const onSubmit = (data) => {
     dispatch(chooseBase(data.base));
-    history.push('./step2');
+    const form = document.querySelector('form');
+    form.style.opacity = '0';
+    form.style.transition = '0.3s all';
+    setTimeout(() => {
+      history.push('./step2');
+      form.style.opacity = '1';
+    }, 300);
+    setTimeout(() => {
+      form.style.opacity = '1';
+    }, 500);
   };
 
   return (
