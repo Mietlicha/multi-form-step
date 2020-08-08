@@ -5,7 +5,15 @@ const rootSlice = createSlice({
   initialState: {
     base: '',
     graphic: '',
-    billingInfo: '',
+    billingInfo: {
+      firstName: '',
+      lastName: '',
+      street: '',
+      building: '',
+      apartment: '',
+      city: '',
+      zip: '',
+    },
   },
   reducers: {
     chooseBase: (state, action) => {

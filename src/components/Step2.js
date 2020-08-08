@@ -1,16 +1,17 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { chooseGraphic } from '../store/rootSlice';
 import { Link } from 'react-router-dom';
-import { Form, Label, Input, ImageLabel } from './styled-components/Form';
+import { Form, Input, ImageLabel } from './styled-components/Form';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
 
 export const Step2 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { register, handleSubmit } = useForm();
+  const graphic = useSelector((state) => state.graphic);
+  const { register, handleSubmit } = useForm({ defaultValues: { graphic } });
 
   const onSubmit = (data) => {
     dispatch(chooseGraphic(data.graphic));

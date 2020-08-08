@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { chooseBase } from '../store/rootSlice';
@@ -9,7 +9,8 @@ import { StepComplete, Next } from './styled-components/Steps';
 export const Step1 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { register, handleSubmit } = useForm();
+  const base = useSelector((state) => state.base);
+  const { register, handleSubmit } = useForm({ defaultValues: { base } });
 
   const onSubmit = (data) => {
     dispatch(chooseBase(data.base));
