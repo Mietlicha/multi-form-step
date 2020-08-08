@@ -30,7 +30,6 @@ export const StepComplete = styled.div`
 
 export const Next = styled(Button)`
   margin-left: auto;
-  margin-left: 1rem;
 `;
 
 export const Previous = styled(Button)`
