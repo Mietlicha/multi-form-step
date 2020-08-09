@@ -88,7 +88,7 @@ export const Step2 = () => {
             wróć
           </Previous>
         </Link>
-        <Next type="submit">dalej</Next>
+        <Next type="submit">do kasy</Next>
       </StepComplete>
     </Form>
   );

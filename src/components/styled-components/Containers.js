@@ -25,3 +25,8 @@ export const GraphicContainer = styled(FlexContainer)`
 export const PositionContainer = styled.div`
   position: relative;
 `;
+
+export const ThanksContainer = styled(LayoutContainer)`
+  height: 80vh;
+  justify-content: space-between;
+`;

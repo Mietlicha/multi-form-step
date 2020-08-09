@@ -40,7 +40,7 @@ export const Step3 = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Krok 4: Podaj dane rachunku:</h2>
+      <h2>Krok 3: Podaj dane rachunku:</h2>
       <Fieldset>
         <legend>dane zamawiającego</legend>
         <div>

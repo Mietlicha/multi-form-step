@@ -7,13 +7,20 @@ import { Step4 } from './components/Step4';
 import { Thanks } from './components/Thanks';
 import { Header } from './components/styled-components/Header';
 import { OrderPreview } from './components/OrderPreview';
+import { useSelector } from 'react-redux';
 import './App.css';
 
 function App() {
+  const step = useSelector((state) => state.helper.step);
+
   return (
     <>
       <Header>
-        <h1>Skompletuj swoje zamówienie</h1>
+        {step === 5 ? (
+          <h1>Dziękujemy za złożenie zamówienia!</h1>
+        ) : (
+          <h1>Skompletuj swoje zamówienie</h1>
+        )}
       </Header>
       <Router>
         <Route exact path="/" component={Step1} />
@@ -22,7 +29,7 @@ function App() {
         <Route path="/step4" component={Step4} />
         <Route path="/thanks" component={Thanks} />
       </Router>
-      <OrderPreview />
+      {step === 5 ? '' : <OrderPreview />}
     </>
   );
 }

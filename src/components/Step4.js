@@ -1,36 +1,50 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { chooseGraphic } from '../store/rootSlice';
+import { incrementStep, decrementStep } from '../store/rootSlice';
+import { Form } from './styled-components/Form';
 import { Link } from 'react-router-dom';
+import { StepComplete, Previous, Next } from './styled-components/Steps';
 
 export const Step4 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { register, handleSubmit } = useForm();
+  let step = useSelector((state) => state.helper.step);
+  const data = useSelector((state) => state.data);
+  const { register, errors, handleSubmit } = useForm({
+    mode: 'onBlur',
+  });
 
   const onSubmit = (data) => {
-    history.push('./thanks');
+    dispatch(incrementStep({ step: step++ }));
+    const form = document.querySelector('form');
+    form.style.opacity = '0';
+    form.style.transition = '0.3s all';
+    setTimeout(() => {
+      history.push('./thanks');
+      form.style.opacity = '1';
+    }, 300);
+    setTimeout(() => {
+      form.style.opacity = '1';
+    }, 500);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      ><h2>Krok 4: Podaj dane rachunku:</h2>
-      <div>
-        <input type="checkbox" name="graphic1" id="graphic1" />
-        <label htmlFor="graphic1"></label>
-      </div>
-      <div className="stepComplete">
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <h2>Krok 4: Podsumowanie danych:</h2>
+      {console.log(data)}
+      <StepComplete>
         <Link to="/step3">
-          <button className="previous" type="submit">
-            previous
-          </button>
+          <Previous
+            onClick={() => dispatch(decrementStep({ step: step-- }))}
+            type="submit"
+          >
+            wróć
+          </Previous>
         </Link>
-        <button className="next" type="submit">
-          Next
-        </button>
-      </div>
-    </form>
+        <Next type="submit">złóż zamówienie</Next>
+      </StepComplete>
+    </Form>
   );
 };
