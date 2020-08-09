@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { chooseBase } from '../store/rootSlice';
+import { chooseBase, updatePrice } from '../store/rootSlice';
 import { Form, Label } from './styled-components/Form';
 import { StepComplete, Next } from './styled-components/Steps';
 import { Error } from './styled-components/Error';
@@ -15,6 +15,8 @@ export const Step1 = () => {
   const { register, handleSubmit, errors } = useForm({
     defaultValues: { base },
   });
+
+  base && dispatch(updatePrice(5));
 
   const onSubmit = (data) => {
     dispatch(chooseBase(data.base));

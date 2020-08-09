@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Form, Input, ImageLabel } from './styled-components/Form';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
 import { Error } from './styled-components/Error';
-import { GraphicContainer } from './styled-components/GraphicContainer';
+import { GraphicContainer } from './styled-components/Containers';
 
 export const Step2 = () => {
   const dispatch = useDispatch();

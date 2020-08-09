@@ -32,8 +32,8 @@ export const ImageLabel = styled(Label)`
   padding: 0 0 0 0px;
 
   @media screen and (min-width: 450px) {
-    background-image: url('https://picsum.photos/150?random=${({ htmlFor }) =>
-      htmlFor.replace(/\D+/g, '')}');
+    background-image: url('https://picsum.photos/id/${({ htmlFor }) =>
+      htmlFor.replace(/\D+/g, '')}/150');
     height: 150px;
   width: 150px;
   }
