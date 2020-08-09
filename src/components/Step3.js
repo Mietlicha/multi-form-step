@@ -13,7 +13,7 @@ import { Tip } from './styled-components/Tip';
 export const Step3 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const billingInfo = useSelector((state) => state.billingInfo);
+  const billingInfo = useSelector((state) => state.data.billingInfo);
   const { register, errors, handleSubmit } = useForm({
     mode: 'onBlur',
   });

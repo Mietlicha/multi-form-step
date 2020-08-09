@@ -12,7 +12,7 @@ import { GraphicContainer } from './styled-components/GraphicContainer';
 export const Step2 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const graphic = useSelector((state) => state.graphic);
+  const graphic = useSelector((state) => state.data.graphic);
   const { register, handleSubmit, errors } = useForm({
     defaultValues: { graphic },
   });

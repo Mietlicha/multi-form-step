@@ -11,7 +11,7 @@ import { Tip } from './styled-components/Tip';
 export const Step1 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const base = useSelector((state) => state.base);
+  const base = useSelector((state) => state.data.base);
   const { register, handleSubmit, errors } = useForm({
     defaultValues: { base },
   });

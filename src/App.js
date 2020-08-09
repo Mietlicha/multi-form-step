@@ -6,6 +6,7 @@ import { Step3 } from './components/Step3';
 import { Step4 } from './components/Step4';
 import { Thanks } from './components/Thanks';
 import { Header } from './components/styled-components/Header';
+import { OrderPreview } from './components/OrderPreview';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/step4" component={Step4} />
         <Route path="/thanks" component={Thanks} />
       </Router>
+      <OrderPreview />
     </>
   );
 }
