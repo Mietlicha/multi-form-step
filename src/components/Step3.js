@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { chooseBillingInfo } from '../store/rootSlice';
+import { chooseBillingInfo, incrementStep } from '../store/rootSlice';
 import { Form } from './styled-components/Form';
 import { Link } from 'react-router-dom';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
@@ -13,6 +13,7 @@ import { Tip } from './styled-components/Tip';
 export const Step3 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  let step = useSelector((state) => state.helper.step);
   const billingInfo = useSelector((state) => state.data.billingInfo);
   const { register, errors, handleSubmit } = useForm({
     mode: 'onBlur',
@@ -20,6 +21,7 @@ export const Step3 = () => {
 
   const onSubmit = (data) => {
     dispatch(chooseBillingInfo(data));
+    dispatch(incrementStep({ step: step++ }));
     const form = document.querySelector('form');
     form.style.opacity = '0';
     form.style.transition = '0.3s all';

@@ -16,7 +16,7 @@ export const OrderPreview = () => {
   const price = useSelector((state) => state.helper.price);
   const step = useSelector((state) => state.helper.step);
   const graphicSrc = `https://picsum.photos/id/${graphic}/100`;
-  console.log(front);
+
   return (
     <>
       <LayoutContainer>

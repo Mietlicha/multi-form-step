@@ -44,21 +44,29 @@ const helpers = createSlice({
   name: 'help',
   initialState: {
     price: '0',
-    step: '1',
+    step: 1,
   },
   reducers: {
     updatePrice: (state, action) => {
       state.price = action.payload;
     },
-    updateStep: (state, action) => {
-      state.step = action.payload;
+    incrementStep: (state) => {
+      state.step = state.step + 1;
+    },
+    decrementStep: (state) => {
+      state.step = state.step - 1;
     },
   },
 });
 
 const helper = helpers.reducer;
 
-export const { updatePrice, updateStep } = helpers.actions;
+export const {
+  updatePrice,
+  updateStep,
+  incrementStep,
+  decrementStep,
+} = helpers.actions;
 
 export const reducer = combineReducers({
   data,

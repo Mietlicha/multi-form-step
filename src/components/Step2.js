@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { chooseGraphic } from '../store/rootSlice';
+import { chooseGraphic, incrementStep } from '../store/rootSlice';
 import { Link } from 'react-router-dom';
 import { Form, Input, ImageLabel } from './styled-components/Form';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
@@ -12,6 +12,7 @@ import { GraphicContainer } from './styled-components/Containers';
 export const Step2 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  let step = useSelector((state) => state.helper.step);
   const graphic = useSelector((state) => state.data.graphic);
   const { register, handleSubmit, errors } = useForm({
     defaultValues: { graphic },
@@ -19,6 +20,7 @@ export const Step2 = () => {
 
   const onSubmit = (data) => {
     dispatch(chooseGraphic(data.graphic));
+    dispatch(incrementStep({ step: step++ }));
     const form = document.querySelector('form');
     form.style.opacity = '0';
     form.style.transition = '0.3s all';
