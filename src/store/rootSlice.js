@@ -1,24 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
+const helperInitialState = {
+  price: 0,
+  step: 1,
+};
+
+const dataInitialState = {
+  base: '',
+  graphic: '1',
+  billingInfo: {
+    firstName: '',
+    lastName: '',
+    street: '',
+    building: '',
+    apartment: '',
+    city: '',
+    zip: '',
+    town: '',
+    email: '',
+    phoneNumber: '',
+  },
+};
+
 const rootSlice = createSlice({
   name: 'root',
-  initialState: {
-    base: '',
-    graphic: '1',
-    billingInfo: {
-      firstName: '',
-      lastName: '',
-      street: '',
-      building: '',
-      apartment: '',
-      city: '',
-      zip: '',
-      town: '',
-      email: '',
-      phoneNumber: '',
-    },
-  },
+  initialState: dataInitialState,
   reducers: {
     chooseBase: (state, action) => {
       state.base = action.payload;
@@ -29,6 +36,7 @@ const rootSlice = createSlice({
     chooseBillingInfo: (state, action) => {
       state.billingInfo = action.payload;
     },
+    dataReset: (state) => (state = dataInitialState),
   },
 });
 
@@ -38,14 +46,12 @@ export const {
   chooseBase,
   chooseGraphic,
   chooseBillingInfo,
+  dataReset,
 } = rootSlice.actions;
 
 const helpers = createSlice({
   name: 'help',
-  initialState: {
-    price: 0,
-    step: 1,
-  },
+  initialState: helperInitialState,
   reducers: {
     updatePrice: (state, action) => {
       state.price = action.payload;
@@ -56,6 +62,7 @@ const helpers = createSlice({
     decrementStep: (state) => {
       state.step = state.step - 1;
     },
+    helperReset: (state) => (state = helperInitialState),
   },
 });
 
@@ -66,6 +73,7 @@ export const {
   updateStep,
   incrementStep,
   decrementStep,
+  helperReset,
 } = helpers.actions;
 
 export const reducer = combineReducers({

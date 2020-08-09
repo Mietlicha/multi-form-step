@@ -1,15 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Previous, StepComplete } from './styled-components/Steps';
+import { dataReset, helperReset } from '../store/rootSlice';
 import { ThanksContainer } from './styled-components/Containers';
 import { TshirtIimg } from './styled-components/TshirtIimg';
 
 export const Thanks = () => {
+  const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
   const helper = useSelector((state) => state.helper);
   const { base, billingInfo } = data;
   console.log(data);
+
+  const reset = () => {
+    dispatch(helperReset());
+    dispatch(dataReset());
+  };
+
   return (
     <>
       <ThanksContainer>
@@ -49,7 +57,9 @@ export const Thanks = () => {
         </div>
         <StepComplete>
           <Link to="/">
-            <Previous type="submit">Złóż nowe zamówienie</Previous>
+            <Previous onClick={reset} type="submit">
+              Złóż nowe zamówienie
+            </Previous>
           </Link>
         </StepComplete>
       </ThanksContainer>
