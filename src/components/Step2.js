@@ -41,6 +41,7 @@ export const Step2 = () => {
           name="graphic"
           ref={register({ required: true })}
           value="1"
+          onChange={(e) => dispatch(chooseGraphic(e.target.value))}
         />
         <ImageLabel htmlFor="graphic_1"></ImageLabel>
         <Input
@@ -49,6 +50,7 @@ export const Step2 = () => {
           name="graphic"
           ref={register({ required: true })}
           value="2"
+          onChange={(e) => dispatch(chooseGraphic(e.target.value))}
         />
         <ImageLabel htmlFor="graphic_2"></ImageLabel>
         <Input
@@ -57,6 +59,7 @@ export const Step2 = () => {
           name="graphic"
           ref={register({ required: true })}
           value="3"
+          onChange={(e) => dispatch(chooseGraphic(e.target.value))}
         />
         <ImageLabel htmlFor="graphic_3"></ImageLabel>
         <Input
@@ -65,6 +68,7 @@ export const Step2 = () => {
           name="graphic"
           ref={register({ required: true })}
           value="4"
+          onChange={(e) => dispatch(chooseGraphic(e.target.value))}
         />
         <ImageLabel className="label4" htmlFor="graphic_4"></ImageLabel>
       </GraphicContainer>

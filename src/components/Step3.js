@@ -8,12 +8,15 @@ import { Link } from 'react-router-dom';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
 import { Error } from './styled-components/Error';
 import { Fieldset } from './styled-components/Fieldset';
+import { Tip } from './styled-components/Tip';
 
 export const Step3 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const billingInfo = useSelector((state) => state.billingInfo);
-  const { register, errors, handleSubmit } = useForm();
+  const { register, errors, handleSubmit } = useForm({
+    mode: 'onBlur',
+  });
 
   const onSubmit = (data) => {
     dispatch(chooseBillingInfo(data));
@@ -206,7 +209,7 @@ export const Step3 = () => {
           {errors.email && <Error>{errors.email.message}</Error>}
         </div>
       </Fieldset>
-      <p>pola oznaczone * są wymagane</p>
+      <Tip>pola oznaczone * są wymagane</Tip>
       <StepComplete>
         <Link to="/step2">
           <Previous type="submit">previous</Previous>

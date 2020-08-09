@@ -6,6 +6,7 @@ import { chooseBase } from '../store/rootSlice';
 import { Form, Label } from './styled-components/Form';
 import { StepComplete, Next } from './styled-components/Steps';
 import { Error } from './styled-components/Error';
+import { Tip } from './styled-components/Tip';
 
 export const Step1 = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ export const Step1 = () => {
           name="base"
           ref={register({ required: true })}
           value="front"
+          onChange={(e) => dispatch(chooseBase(e.target.value))}
         />
       </div>
       <div>
@@ -50,9 +52,11 @@ export const Step1 = () => {
           name="base"
           ref={register({ required: true })}
           value="back"
+          onChange={(e) => dispatch(chooseBase(e.target.value))}
         />
       </div>
       {errors.base && <Error>wybierz jedną z opcji</Error>}
+      <Tip>Dodanie nadruku kosztuje 5zł</Tip>
       <StepComplete>
         <Next type="submit">Next</Next>
       </StepComplete>

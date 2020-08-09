@@ -24,17 +24,16 @@ export const Label = styled.label`
 `;
 
 export const ImageLabel = styled(Label)`
-  background-image: url('https://picsum.photos/100/100?random=${({ htmlFor }) =>
-    htmlFor.replace(/\D+/g, '')}');
+  background-image: url('https://picsum.photos/id/${({ htmlFor }) =>
+    htmlFor.replace(/\D+/g, '')}/100');
   height: 100px;
   width: 100px;
   display: inline-block;
   padding: 0 0 0 0px;
 
   @media screen and (min-width: 450px) {
-    background-image: url('https://picsum.photos/150/150?random=${({
-      htmlFor,
-    }) => htmlFor.replace(/\D+/g, '')}');
+    background-image: url('https://picsum.photos/150?random=${({ htmlFor }) =>
+      htmlFor.replace(/\D+/g, '')}');
     height: 150px;
   width: 150px;
   }
