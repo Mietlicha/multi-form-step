@@ -12,7 +12,6 @@ export const Step1 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const base = useSelector((state) => state.data.base);
-  let price = useSelector((state) => state.helper.price);
   let step = useSelector((state) => state.helper.step);
 
   const { register, handleSubmit, errors } = useForm({
@@ -24,7 +23,6 @@ export const Step1 = () => {
   const onSubmit = (data) => {
     dispatch(chooseBase(data.base));
     dispatch(incrementStep({ step: step++ }));
-
     const form = document.querySelector('form');
     form.style.opacity = '0';
     form.style.transition = '0.3s all';
@@ -65,7 +63,7 @@ export const Step1 = () => {
       {errors.base && <Error>wybierz jedną z opcji</Error>}
       <Tip>Dodanie nadruku kosztuje 5zł</Tip>
       <StepComplete>
-        <Next type="submit">Next</Next>
+        <Next type="submit">dalej</Next>
       </StepComplete>
     </Form>
   );

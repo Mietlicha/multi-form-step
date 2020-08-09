@@ -2,7 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { chooseGraphic, incrementStep } from '../store/rootSlice';
+import {
+  chooseGraphic,
+  incrementStep,
+  decrementStep,
+} from '../store/rootSlice';
 import { Link } from 'react-router-dom';
 import { Form, Input, ImageLabel } from './styled-components/Form';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
@@ -77,9 +81,14 @@ export const Step2 = () => {
       {errors.graphic && <Error>wybierz jedną grafikę</Error>}
       <StepComplete>
         <Link to="/">
-          <Previous type="submit">previous</Previous>
+          <Previous
+            onClick={() => dispatch(decrementStep({ step: step-- }))}
+            type="submit"
+          >
+            wróć
+          </Previous>
         </Link>
-        <Next type="submit">Next</Next>
+        <Next type="submit">dalej</Next>
       </StepComplete>
     </Form>
   );

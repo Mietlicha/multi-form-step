@@ -2,7 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { chooseBillingInfo, incrementStep } from '../store/rootSlice';
+import {
+  chooseBillingInfo,
+  incrementStep,
+  decrementStep,
+} from '../store/rootSlice';
 import { Form } from './styled-components/Form';
 import { Link } from 'react-router-dom';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
@@ -214,7 +218,12 @@ export const Step3 = () => {
       <Tip>pola oznaczone * są wymagane</Tip>
       <StepComplete>
         <Link to="/step2">
-          <Previous type="submit">previous</Previous>
+          <Previous
+            onClick={() => dispatch(decrementStep({ step: step-- }))}
+            type="submit"
+          >
+            wróć
+          </Previous>
         </Link>
         <Next type="submit">złóż zamówienie</Next>
       </StepComplete>

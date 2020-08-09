@@ -43,7 +43,7 @@ export const {
 const helpers = createSlice({
   name: 'help',
   initialState: {
-    price: '0',
+    price: 0,
     step: 1,
   },
   reducers: {
