@@ -57,14 +57,10 @@ export const Step2 = () => {
     <Form onSubmit={handleSubmit(onSubmit)}>
       <h2>Krok 2: Wybierz grafikę:</h2>
       <GraphicContainer>
-        <StyledCarousel
-          dynamicHeight={true}
-          infiniteLoop
-          onClickItem={(e) => console.log(e)}
-        >
-          {graphicInput.map(({ id, value }) => {
+        <StyledCarousel dynamicHeight={true} infiniteLoop showThumbs={false}>
+          {graphicInput.map(({ id, value }, index) => {
             return (
-              <div>
+              <div key={id}>
                 <Input
                   id={id}
                   type="radio"

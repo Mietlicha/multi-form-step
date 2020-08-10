@@ -13,21 +13,9 @@ export const baseInput = [
   },
 ];
 
-export const graphicInput = [
-  {
-    id: 'graphic_1',
-    value: '1',
-  },
-  {
-    id: 'graphic_2',
-    value: '2',
-  },
-  {
-    id: 'graphic_3',
-    value: '3',
-  },
-  {
-    id: 'graphic_4',
-    value: '4',
-  },
-];
+const arrey = [1, 2, 3, 4];
+
+export const graphicInput = arrey.map((item, index) => {
+  const random = Math.floor(Math.random() * 100);
+  return { id: `graphic_${random}`, value: random };
+});

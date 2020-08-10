@@ -2,12 +2,17 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { chooseBase, updatePrice, incrementStep } from '../store/rootSlice';
+import {
+  chooseBase,
+  updatePrice,
+  incrementStep,
+  chooseGraphic,
+} from '../store/rootSlice';
 import { Form, Label } from './styled-components/Form';
 import { StepComplete, Next } from './styled-components/Steps';
 import { Error } from './styled-components/Error';
 import { Tip } from './styled-components/Tip';
-import { baseInput } from '../utils/data';
+import { baseInput, graphicInput } from '../utils/data';
 
 export const Step1 = () => {
   const dispatch = useDispatch();
@@ -19,6 +24,8 @@ export const Step1 = () => {
     defaultValues: { base },
   });
 
+  const defaultGraphicValue = graphicInput[0].value;
+  dispatch(chooseGraphic(defaultGraphicValue));
   base && dispatch(updatePrice(10));
 
   const onSubmit = (data) => {
