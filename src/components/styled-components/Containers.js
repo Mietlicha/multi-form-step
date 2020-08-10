@@ -30,3 +30,9 @@ export const ThanksContainer = styled(LayoutContainer)`
   height: 80vh;
   justify-content: space-between;
 `;
+
+export const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+`;

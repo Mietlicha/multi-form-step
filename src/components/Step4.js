@@ -6,12 +6,14 @@ import { incrementStep, decrementStep } from '../store/rootSlice';
 import { Form } from './styled-components/Form';
 import { Link } from 'react-router-dom';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
+import { GridContainer } from './styled-components/Containers';
 
 export const Step4 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   let step = useSelector((state) => state.helper.step);
   const data = useSelector((state) => state.data);
+  const { base, billingInfo } = data;
   const { register, errors, handleSubmit } = useForm({
     mode: 'onBlur',
   });
@@ -33,7 +35,10 @@ export const Step4 = () => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <h2>Krok 4: Podsumowanie danych:</h2>
-      {console.log(data)}
+      <GridContainer>
+        <p>Miejsce nadruku:</p> <b>{base === 'front' ? 'przód' : 'tył'}</b>
+        <p>grafika:</p> <b>{base === 'front' ? 'przód' : 'tył'}</b>
+      </GridContainer>
       <StepComplete>
         <Link to="/step3">
           <Previous
