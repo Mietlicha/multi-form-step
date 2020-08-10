@@ -12,6 +12,9 @@ import { Form, Input, ImageLabel } from './styled-components/Form';
 import { StepComplete, Previous, Next } from './styled-components/Steps';
 import { Error } from './styled-components/Error';
 import { GraphicContainer } from './styled-components/Containers';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+import styled from 'styled-components';
 
 export const Step2 = () => {
   const dispatch = useDispatch();
@@ -37,48 +40,72 @@ export const Step2 = () => {
     }, 500);
   };
 
-  // const graphicId = `graphic_${graphic}`;
+  const StyledCarousel = styled(Carousel)`
+    width: 100%;
+
+    .slide {
+      background: transparent;
+    }
+
+    .carousel-status {
+      display: none;
+    }
+  `;
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <h2>Krok 2: Wybierz grafikę:</h2>
       <GraphicContainer>
-        <Input
-          id="graphic_1"
-          type="radio"
-          name="graphic"
-          ref={register({ required: true })}
-          value="1"
-          onChange={(e) => dispatch(chooseGraphic(e.target.value))}
-        />
-        <ImageLabel htmlFor="graphic_1"></ImageLabel>
-        <Input
-          id="graphic_2"
-          type="radio"
-          name="graphic"
-          ref={register({ required: true })}
-          value="2"
-          onChange={(e) => dispatch(chooseGraphic(e.target.value))}
-        />
-        <ImageLabel htmlFor="graphic_2"></ImageLabel>
-        <Input
-          id="graphic_3"
-          type="radio"
-          name="graphic"
-          ref={register({ required: true })}
-          value="3"
-          onChange={(e) => dispatch(chooseGraphic(e.target.value))}
-        />
-        <ImageLabel htmlFor="graphic_3"></ImageLabel>
-        <Input
-          id="graphic_4"
-          type="radio"
-          name="graphic"
-          ref={register({ required: true })}
-          value="4"
-          onChange={(e) => dispatch(chooseGraphic(e.target.value))}
-        />
-        <ImageLabel className="label4" htmlFor="graphic_4"></ImageLabel>
+        <StyledCarousel
+          dynamicHeight={true}
+          infiniteLoop
+          onClickItem={(e) => console.log(e)}
+        >
+          <div>
+            <Input
+              id="graphic_1"
+              type="radio"
+              name="graphic"
+              ref={register({ required: true })}
+              value="1"
+              onChange={(e) => dispatch(chooseGraphic(e.target.value))}
+            />
+            <ImageLabel htmlFor="graphic_1"></ImageLabel>
+          </div>
+          <div>
+            <Input
+              id="graphic_2"
+              type="radio"
+              name="graphic"
+              ref={register({ required: true })}
+              value="2"
+              onChange={(e) => dispatch(chooseGraphic(e.target.value))}
+            />
+            <ImageLabel htmlFor="graphic_2"></ImageLabel>
+          </div>
+          <div>
+            <Input
+              id="graphic_3"
+              type="radio"
+              name="graphic"
+              ref={register({ required: true })}
+              value="3"
+              onChange={(e) => dispatch(chooseGraphic(e.target.value))}
+            />
+            <ImageLabel htmlFor="graphic_3"></ImageLabel>
+          </div>
+          <div>
+            <Input
+              id="graphic_4"
+              type="radio"
+              name="graphic"
+              ref={register({ required: true })}
+              value="4"
+              onChange={(e) => dispatch(chooseGraphic(e.target.value))}
+            />
+            <ImageLabel className="label4" htmlFor="graphic_4"></ImageLabel>
+          </div>
+        </StyledCarousel>
       </GraphicContainer>
       {errors.graphic && <Error>wybierz jedną grafikę</Error>}
       <StepComplete>
