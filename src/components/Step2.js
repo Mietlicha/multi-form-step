@@ -15,6 +15,7 @@ import { GraphicContainer } from './styled-components/Containers';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import styled from 'styled-components';
+import { graphicInput } from '../utils/data';
 
 export const Step2 = () => {
   const dispatch = useDispatch();
@@ -61,50 +62,21 @@ export const Step2 = () => {
           infiniteLoop
           onClickItem={(e) => console.log(e)}
         >
-          <div>
-            <Input
-              id="graphic_1"
-              type="radio"
-              name="graphic"
-              ref={register({ required: true })}
-              value="1"
-              onChange={(e) => dispatch(chooseGraphic(e.target.value))}
-            />
-            <ImageLabel htmlFor="graphic_1"></ImageLabel>
-          </div>
-          <div>
-            <Input
-              id="graphic_2"
-              type="radio"
-              name="graphic"
-              ref={register({ required: true })}
-              value="2"
-              onChange={(e) => dispatch(chooseGraphic(e.target.value))}
-            />
-            <ImageLabel htmlFor="graphic_2"></ImageLabel>
-          </div>
-          <div>
-            <Input
-              id="graphic_3"
-              type="radio"
-              name="graphic"
-              ref={register({ required: true })}
-              value="3"
-              onChange={(e) => dispatch(chooseGraphic(e.target.value))}
-            />
-            <ImageLabel htmlFor="graphic_3"></ImageLabel>
-          </div>
-          <div>
-            <Input
-              id="graphic_4"
-              type="radio"
-              name="graphic"
-              ref={register({ required: true })}
-              value="4"
-              onChange={(e) => dispatch(chooseGraphic(e.target.value))}
-            />
-            <ImageLabel className="label4" htmlFor="graphic_4"></ImageLabel>
-          </div>
+          {graphicInput.map(({ id, value }) => {
+            return (
+              <div>
+                <Input
+                  id={id}
+                  type="radio"
+                  name="graphic"
+                  ref={register({ required: true })}
+                  value={value}
+                  onChange={(e) => dispatch(chooseGraphic(e.target.value))}
+                />
+                <ImageLabel htmlFor={id}></ImageLabel>
+              </div>
+            );
+          })}
         </StyledCarousel>
       </GraphicContainer>
       {errors.graphic && <Error>wybierz jedną grafikę</Error>}

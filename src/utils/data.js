@@ -12,3 +12,22 @@ export const baseInput = [
     value: 'back',
   },
 ];
+
+export const graphicInput = [
+  {
+    id: 'graphic_1',
+    value: '1',
+  },
+  {
+    id: 'graphic_2',
+    value: '2',
+  },
+  {
+    id: 'graphic_3',
+    value: '3',
+  },
+  {
+    id: 'graphic_4',
+    value: '4',
+  },
+];
