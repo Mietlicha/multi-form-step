@@ -17,6 +17,18 @@ import { Carousel } from 'react-responsive-carousel';
 import styled from 'styled-components';
 import { graphicInput } from '../utils/data';
 
+const StyledCarousel = styled(Carousel)`
+  width: 100%;
+
+  .slide {
+    background: transparent;
+  }
+
+  .carousel-status {
+    display: none;
+  }
+`;
+
 export const Step2 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -41,24 +53,12 @@ export const Step2 = () => {
     }, 500);
   };
 
-  const StyledCarousel = styled(Carousel)`
-    width: 100%;
-
-    .slide {
-      background: transparent;
-    }
-
-    .carousel-status {
-      display: none;
-    }
-  `;
-
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <h2>Krok 2: Wybierz grafikę:</h2>
       <GraphicContainer>
-        <StyledCarousel dynamicHeight={true} infiniteLoop showThumbs={false}>
-          {graphicInput.map(({ id, value }, index) => {
+        <StyledCarousel infiniteLoop showThumbs={false}>
+          {graphicInput.map(({ id, value }) => {
             return (
               <div key={id}>
                 <Input

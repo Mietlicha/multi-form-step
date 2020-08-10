@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
-// const randomNumer = Math.floor(Math.random() * 1000);
-
 const helperInitialState = {
   price: 0,
   step: 1,
@@ -10,7 +8,7 @@ const helperInitialState = {
 
 const dataInitialState = {
   base: '',
-  graphic: '1',
+  graphic: '',
   billingInfo: {
     firstName: '',
     lastName: '',
