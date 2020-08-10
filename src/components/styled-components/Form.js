@@ -24,7 +24,7 @@ export const Label = styled.label`
 `;
 
 export const ImageLabel = styled(Label)`
-  background-image: url('https://picsum.photos/id/${({ htmlFor }) =>
+  background-image:url('https://picsum.photos/id/${({ htmlFor }) =>
     htmlFor.replace(/\D+/g, '')}/100');
   height: 100px;
   width: 100px;
