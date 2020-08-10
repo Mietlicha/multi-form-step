@@ -19,7 +19,7 @@ export const Step1 = () => {
     defaultValues: { base },
   });
 
-  base && dispatch(updatePrice(5));
+  base && dispatch(updatePrice(10));
 
   const onSubmit = (data) => {
     dispatch(chooseBase(data.base));
@@ -55,7 +55,7 @@ export const Step1 = () => {
         );
       })}
       {errors.base && <Error>wybierz jedną z opcji</Error>}
-      <Tip>Dodanie nadruku kosztuje 5zł</Tip>
+      <Tip>Dodanie nadruku kosztuje 10zł</Tip>
       <StepComplete>
         <Next type="submit">dalej</Next>
       </StepComplete>

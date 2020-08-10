@@ -37,6 +37,8 @@ export const Step2 = () => {
     }, 500);
   };
 
+  // const graphicId = `graphic_${graphic}`;
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <h2>Krok 2: Wybierz grafikę:</h2>

@@ -6,11 +6,11 @@ import {
   LayoutContainer,
 } from './styled-components/Containers';
 import { TshirtIimg } from './styled-components/TshirtIimg';
+import { Graphic } from './Graphic';
 
 export const OrderPreview = () => {
-  const graphic = useSelector((state) => state.data.graphic);
   const price = useSelector((state) => state.helper.price);
-  const graphicSrc = `https://picsum.photos/id/${graphic}/100`;
+  const step = useSelector((state) => state.helper.step);
 
   return (
     <>
@@ -20,7 +20,8 @@ export const OrderPreview = () => {
       <StyledContainer>
         <TshirtIimg />
         <LayoutContainer>
-          <img alt="graphic" src={graphicSrc} />
+          {step === 1 ? <p>Proponowana grafika:</p> : <p>Wybrana grafika:</p>}
+          <Graphic />
           <PriceDetail>
             <h3>Koszt:</h3>
             <p>{price} zł</p>

@@ -35,4 +35,11 @@ export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  margin-bottom: 1rem;
+  & > p {
+    margin: 0.5rem 0;
+    @media screen and (min-width: 450px) {
+      margin: 0.5rem 1rem;
+    }
+  }
 `;
